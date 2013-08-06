@@ -15,6 +15,8 @@ alias devlog='tail -f log/development.log'
 alias rr='bundle exec rake routes'
 alias rdr='bundle exec rake db:rollback'
 
+alias git='hub'
+
 alias bi='bundle install'
 
 # workflow

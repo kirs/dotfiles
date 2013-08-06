@@ -1,4 +1,4 @@
-My dotfiles on OS X 10.8 Macbook Retina.
+My dotfiles on OS X 10.8 & Macbook Retina.
 
 ## Requirements
 
