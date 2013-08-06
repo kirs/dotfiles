@@ -1,6 +1,8 @@
+export PATH="$HOME/.rbenv/bin:$PATH"
+export SHELL=zsh
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
-alias aliases='subl -n ~/.bash_profile'
+alias aliases='subl -n ~/.zshrc'
 
 # rails
 alias rs='bundle exec rails server'
