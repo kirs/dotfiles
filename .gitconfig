@@ -1,0 +1,21 @@
+[user]
+	name = Kir Shatrov
+	email = shatrov@me.com
+[alias]
+	st = status
+	ci = commit -m
+	cia = commit -a -m
+	br = branch
+	co = checkout
+	df = diff --color
+	dif = diff --cached
+	lg = log -p
+	pr = pull --rebase
+[color]
+	ui = true
+[core]
+	pager = less -r
+	editor = subl -w
+	autocrlf = input
+[push]
+	default = simple
