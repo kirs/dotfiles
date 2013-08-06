@@ -2,6 +2,9 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 export SHELL=zsh
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
+fpath=(~/.zsh/functions $fpath)
+autoload -U compinit && compinit
+
 alias aliases='subl -n ~/.zshrc'
 
 # rails
@@ -15,7 +18,6 @@ alias rdr='bundle exec rake db:rollback'
 alias bi='bundle install'
 
 # workflow
-alias p='cd ~/Projects/'
 alias st='subl'
 alias s='subl -n .'
 
@@ -32,3 +34,8 @@ export NO_ELASTIC=1
 export EDITOR='subl -n'
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
+
+source ~/.dotfiles/projects.zsh
+
+setopt PROMPT_SUBST
+PROMPT='%{$(pwd|grep --color=always /)%${#PWD}G%} %(!.%F{red}.%F{cyan})%n%f@%F{yellow}%m%f%(!.%F{red}.)%#%f '
