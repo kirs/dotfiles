@@ -37,5 +37,7 @@ export LC_ALL=en_US.UTF-8
 
 source ~/.dotfiles/projects.zsh
 
+# TODO configure
+# http://superuser.com/questions/49092/how-to-format-the-path-in-a-zsh-prompt
 setopt PROMPT_SUBST
-PROMPT='%{$(pwd|grep --color=always /)%${#PWD}G%} %(!.%F{red}.%F{cyan})%n%f@%F{yellow}%m%f%(!.%F{red}.)%#%f '
+PROMPT='%{$(pwd|grep --color=always /)%${#PWD}G%} %(!.%F{red}.%F{cyan})%n%f@%F{yellow}%f%(!.%F{red}.)%f '
