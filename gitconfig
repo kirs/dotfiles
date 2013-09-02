@@ -11,6 +11,7 @@
 	dif = diff --cached
 	lg = log -p
 	pr = pull --rebase
+        pick = cherry-pick
 [color]
 	ui = true
 [core]
