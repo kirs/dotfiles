@@ -14,8 +14,10 @@ alias rdm='bundle exec rake db:migrate db:test:clone'
 alias devlog='tail -f log/development.log'
 alias rr='bundle exec rake routes'
 alias rdr='bundle exec rake db:rollback'
+alias cpd='bundle exec cap production deploy'
 
 alias git='hub'
+alias gx'gitx'
 
 alias bi='bundle install'
 
@@ -30,6 +32,7 @@ alias gp='git push'
 alias gcm='git checkout master'
 
 alias dbundle='ruby -I ~/Projects/opensource/bundler/lib ~/Projects/opensource/bundler/bin/bundle'
+alias dbundler='ruby -I ~/Projects/opensource/bundler/lib ~/Projects/opensource/bundler/bin/bundler'
 
 export PATH="$HOME/.bin:$PATH"
 export NO_ELASTIC=1
