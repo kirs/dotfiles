@@ -2,6 +2,8 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 export SHELL=zsh
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
+export PATH="./bin:$PATH"
+export GOPATH="$HOME/.go_packages"
 fpath=(~/.zsh/functions $fpath)
 autoload -U compinit && compinit
 
