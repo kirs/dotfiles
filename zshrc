@@ -36,7 +36,8 @@ alias dbundler='ruby -I ~/Projects/opensource/bundler/lib ~/Projects/opensource/
 
 export PATH="$HOME/.bin:$PATH"
 export NO_ELASTIC=1
-export EDITOR='subl -n'
+export NO_BETTER_ERRORS=1
+export EDITOR='$HOME/.bin/subl -n'
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
