@@ -18,5 +18,6 @@
 	pager = less -r
 	editor = subl -w
 	autocrlf = input
+	excludesfile = /Users/kir/.gitignore_global
 [push]
 	default = simple
