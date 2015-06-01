@@ -1,0 +1,30 @@
+#!/usr/bin/env ruby
+
+require 'fileutils'
+
+def camelize(term)
+  string = term.to_s
+  string = string.sub(/^[a-z\d]*/) { $&.capitalize }
+  string.gsub!(/(?:_|(\/))([a-z\d]*)/i) { "#{$1}#{$2.capitalize}" }
+  string.gsub!(/\//, '::')
+  string
+end
+
+def klass_from_file(file)
+  res = file.match(/app\/(\w+)\/(\S+).rb/)
+  camelize(res[2].sub(/.*\./, ''))
+end
+
+origin = ARGV[0]
+absolute = File.expand_path(origin)
+base = File.basename(origin)
+FileUtils.mkdir_p(absolute.gsub(base, ""))
+
+klass = klass_from_file(origin)
+File.open(absolute, "w") do |f|
+  f.write("class #{klass}\nend\n")
+end
+
+puts "#{origin} created: #{klass}"
+
+`subl #{absolute}`
