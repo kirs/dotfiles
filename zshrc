@@ -39,10 +39,6 @@ alias redis='redis-server /usr/local/etc/redis.conf'
 
 source ~/.dotfiles/projects.zsh
 
-# TODO configure
-# http://superuser.com/questions/49092/how-to-format-the-path-in-a-zsh-prompt
-setopt PROMPT_SUBST
-PROMPT='%{$(pwd|grep --color=always /)%${#PWD}G%} %(!.%F{red}.%F{cyan})%n%f@%F{yellow}%f%(!.%F{red}.)%f '
 eval "$(gh alias -s)"
 source /Users/kir/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /Users/kir/.zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
