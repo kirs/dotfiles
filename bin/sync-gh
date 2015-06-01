@@ -1,5 +1,0 @@
-echo 'git remote add upstream git://github.com/capistrano/rails.git'
-echo 'git fetch upstream'
-echo 'git checkout master'
-echo 'git reset --hard upstream/master'
-echo 'git push origin master --force'
