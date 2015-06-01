@@ -1,6 +1,11 @@
-My dotfiles on OS X 10.8 & Macbook Retina.
+My dotfiles on OS X 10.10 & MBR.
 
-## Requirements
+Links:
 
-You need to clone https://github.com/thrig/zsh-compdef and put it into `~/.zsh/`
-
+```
+.zshrc -> .dotfiles/zshrc
+.zsh -> .dotfiles/.zsh
+.gitconfig -> .dotfiles/gitconfig
+.gitignore_global -> .dotfiles/gitignore
+.bin -> .dotfiles/bin
+``
