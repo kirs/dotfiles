@@ -1,18 +1,14 @@
-export PATH="$HOME/.rbenv/bin:$PATH"
 export SHELL=zsh
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
-export PATH="./bin:$PATH"
-export GOPATH="$HOME/.go_packages"
 fpath=(~/.zsh/functions $fpath)
+
 autoload -U compinit && compinit
 autoload -U promptinit && promptinit
 
 prompt pure
 
 alias aliases='subl -n ~/.zshrc'
-
-export ATOM_REPOS_HOME="$HOME/Projects/atom"
 
 # rails
 alias rs='./bin/rails server'
@@ -40,13 +36,6 @@ alias dbundler='ruby -I ~/Projects/opensource/bundler/lib ~/Projects/opensource/
 
 alias elastic='elasticsearch --config=/usr/local/opt/elasticsearch/config/elasticsearch.yml'
 alias redis='redis-server /usr/local/etc/redis.conf'
-
-export PATH="$HOME/.bin:$PATH"
-export NO_ELASTIC=1
-export NO_BETTER_ERRORS=1
-export EDITOR='/Users/kir/.bin/subl -n'
-export LANG=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
 
 source ~/.dotfiles/projects.zsh
 
