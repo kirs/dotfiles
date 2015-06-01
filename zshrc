@@ -62,3 +62,8 @@ source /Users/kir/.zsh/zsh-history-substring-search/zsh-history-substring-search
 # bind UP and DOWN arrow keys
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
+
+HISTFILE=~/.histfile
+HISTSIZE=1000
+SAVEHIST=1000
+setopt appendhistory autocd nomatch
