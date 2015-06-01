@@ -1,7 +1,3 @@
-eval "$(rbenv init -)"
-
-export PATH="./bin:$PATH"
-
 # golang magic
 export PATH="$HOME/.go_packages/bin:$PATH"
 
@@ -19,4 +15,3 @@ export RUBYGEMS_GEMDEPS=true
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
-

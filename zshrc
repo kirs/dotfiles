@@ -1,5 +1,6 @@
 export SHELL=zsh
-if which rbenv > /dev/null; then eval "$(rbenv init - zsh)"; fi
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+export PATH="./bin:$PATH"
 
 fpath=(~/.zsh/functions $fpath)
 
