@@ -39,7 +39,8 @@ alias redis='redis-server /usr/local/etc/redis.conf'
 
 source ~/.dotfiles/projects.zsh
 
-eval "$(gh alias -s)"
+eval "$(hub alias -s)"
+
 source /Users/kir/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /Users/kir/.zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
 
