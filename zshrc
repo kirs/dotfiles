@@ -54,3 +54,5 @@ HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
 setopt appendhistory autocd nomatch
+
+fpath=(~/.zsh $fpath)
