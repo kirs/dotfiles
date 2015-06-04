@@ -1,4 +1,7 @@
 export SHELL=zsh
+eval "$(hub alias -s)"
+fpath=(/usr/local/share/zsh/site-functions $fpath)
+
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 export PATH="./bin:$PATH"
 
@@ -43,8 +46,6 @@ alias redis='redis-server /usr/local/etc/redis.conf'
 
 source ~/.dotfiles/projects.zsh
 
-eval "$(hub alias -s)"
-
 source /Users/kir/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /Users/kir/.zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
 
@@ -57,5 +58,3 @@ HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
 setopt appendhistory autocd nomatch
-
-fpath=(~/.zsh $fpath)
