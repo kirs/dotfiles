@@ -11,6 +11,9 @@ prompt pure
 
 alias aliases='subl -n ~/.zshrc'
 
+alias emc='/Applications/Emacs.app/Contents/MacOS/bin-x86_64-10_9/emacsclient -n'
+alias em='/Applications/Emacs.app/Contents/MacOS/Emacs-x86_64-10_9'
+
 # rails
 alias rs='./bin/rails server'
 alias rc='./bin/rails console'
