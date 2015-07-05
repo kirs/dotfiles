@@ -1,5 +1,6 @@
 # golang magic
 export PATH="$HOME/.go_packages/bin:$PATH"
+export PATH="./node_modules/.bin:$PATH"
 
 export GOPATH="$HOME/.go_packages"
 
