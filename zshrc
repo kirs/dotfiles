@@ -12,10 +12,10 @@ autoload -U promptinit && promptinit
 
 prompt pure
 
-alias aliases='subl -n ~/.zshrc'
 
 alias emc='/Applications/Emacs.app/Contents/MacOS/bin-x86_64-10_9/emacsclient -n'
 alias em='/Applications/Emacs.app/Contents/MacOS/Emacs-x86_64-10_9'
+alias aliases='$EDITOR -n ~/.zshrc'
 
 # rails
 alias rs='./bin/rails server'
@@ -29,8 +29,8 @@ alias cpd='./bin/cap production deploy'
 alias bi='bundle install'
 
 # workflow
-alias st='subl'
-alias s='subl -n .'
+alias atom='vim . '
+alias vi='vim'
 
 # git
 alias g='git'

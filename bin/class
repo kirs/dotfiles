@@ -27,4 +27,4 @@ end
 
 puts "#{origin} created: #{klass}"
 
-`subl #{absolute}`
+`#{ENV['EDITOR']} #{absolute}`
