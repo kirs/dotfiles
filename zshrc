@@ -12,9 +12,6 @@ autoload -U promptinit && promptinit
 
 prompt pure
 
-
-alias emc='/Applications/Emacs.app/Contents/MacOS/bin-x86_64-10_9/emacsclient -n'
-alias em='/Applications/Emacs.app/Contents/MacOS/Emacs-x86_64-10_9'
 alias aliases='$EDITOR -n ~/.zshrc'
 
 # rails
