@@ -11,7 +11,8 @@
 	dif = diff --cached
 	lg = log -p
 	pr = pull --rebase
-        pick = cherry-pick
+  prom = pull --rebase origin master
+  pick = cherry-pick
 [color]
 	ui = true
 [core]
@@ -21,3 +22,7 @@
 	editor = /usr/bin/vim
 [push]
 	default = simple
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
