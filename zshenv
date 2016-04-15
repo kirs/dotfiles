@@ -1,8 +1,10 @@
 # golang magic
-export PATH="$HOME/.go_packages/bin:$PATH"
+#
+export GOPATH="$HOME/Projects/go"
+
+export PATH="$GOPATH/bin:$PATH"
 export PATH="./node_modules/.bin:$PATH"
 
-export GOPATH="$HOME/.go_packages"
 
 export ATOM_REPOS_HOME="$HOME/Projects/atom"
 
