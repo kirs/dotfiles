@@ -5,6 +5,10 @@ export GOPATH="$HOME/Projects/go"
 export PATH="$GOPATH/bin:$PATH"
 export PATH="./node_modules/.bin:$PATH"
 
+export FZF_DEFAULT_COMMAND='
+  (git ls-tree -r --name-only HEAD ||
+   find . -path "*/\.*" -prune -o -type f -print -o -type l -print |
+      sed s/^..//) 2> /dev/null'
 
 export ATOM_REPOS_HOME="$HOME/Projects/atom"
 
