@@ -5,6 +5,8 @@ export GOPATH="$HOME/Projects/go"
 export PATH="$GOPATH/bin:$PATH"
 export PATH="./node_modules/.bin:$PATH"
 
+# Shopify specific
+export PRY=1
 export FZF_DEFAULT_COMMAND='
   (git ls-tree -r --name-only HEAD ||
    find . -path "*/\.*" -prune -o -type f -print -o -type l -print |

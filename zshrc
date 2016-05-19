@@ -24,6 +24,8 @@ alias rdr='./bin/rake db:rollback'
 alias cpd='./bin/cap production deploy'
 
 alias bi='bundle install'
+# shopify specific
+alias knife="RBENV_VERSION=2.3.0 BUNDLE_GEMFILE=/Users/kir/.chef/Gemfile bundle exec knife"
 
 # workflow
 alias vi='nvim'
@@ -55,3 +57,6 @@ HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
 setopt appendhistory autocd nomatch
+# shopify specific
+source /opt/dev/dev.sh
+chruby ruby-2.3.0
