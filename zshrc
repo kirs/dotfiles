@@ -29,6 +29,7 @@ alias knife="RBENV_VERSION=2.3.0 BUNDLE_GEMFILE=/Users/kir/.chef/Gemfile bundle 
 # workflow
 alias vi='nvim'
 alias vim='nvim'
+alias tmux='tmux -2'
 
 # git
 alias g='git'
