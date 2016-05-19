@@ -2,7 +2,6 @@ export SHELL=zsh
 eval "$(hub alias -s)"
 fpath=(/usr/local/share/zsh/site-functions $fpath)
 
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 export PATH="./bin:$PATH"
 
 fpath=(~/.zsh/functions $fpath)
