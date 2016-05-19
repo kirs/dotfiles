@@ -19,7 +19,7 @@
 	pager = less -r
 	autocrlf = input
 	excludesfile = /Users/kir/.gitignore_global
-	editor = /usr/bin/vim
+	editor = /usr/local/bin/nvim
 [push]
 	default = simple
 [filter "lfs"]

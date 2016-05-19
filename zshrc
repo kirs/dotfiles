@@ -26,8 +26,8 @@ alias cpd='./bin/cap production deploy'
 alias bi='bundle install'
 
 # workflow
-alias atom='vim . '
-alias vi='vim'
+alias vi='nvim'
+alias vim='nvim'
 
 # git
 alias g='git'
