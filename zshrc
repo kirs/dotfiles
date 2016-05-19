@@ -34,6 +34,7 @@ alias tmux='tmux -2'
 # git
 alias g='git'
 alias gst='git status'
+alias gbr='git branch'
 alias gp='git push'
 alias gcm='git checkout master'
 
@@ -42,6 +43,7 @@ alias dbundler='ruby -I ~/Projects/opensource/bundler/lib ~/Projects/opensource/
 
 alias elastic='elasticsearch --config=/usr/local/opt/elasticsearch/config/elasticsearch.yml'
 alias redis='redis-server /usr/local/etc/redis.conf'
+alias weather='function _weather(){ curl http://wttr.in/$1 };_weather'
 
 source ~/.dotfiles/projects.zsh
 
