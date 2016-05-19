@@ -1,3 +1,5 @@
 .DS_Store
 .vagrant
 vendor/bundle
+gemfiles/vendor/bundle
+.byebug_history
