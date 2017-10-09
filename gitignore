@@ -1,4 +1,5 @@
 .DS_Store
+kirs/
 .vagrant
 vendor/bundle
 gemfiles/vendor/bundle
