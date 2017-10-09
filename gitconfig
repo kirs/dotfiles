@@ -1,24 +1,25 @@
+[diff]
+	compactionHeuristic = true
 [user]
 	name = Kir Shatrov
 	email = shatrov@me.com
 [alias]
 	st = status
 	ci = commit -m
-	cia = commit -a -m
 	br = branch
 	co = checkout
 	df = diff --color
 	dif = diff --cached
 	lg = log -p
 	pr = pull --rebase
-  prom = pull --rebase origin master
+  prom = pull origin master --rebase
   pick = cherry-pick
 [color]
 	ui = true
 [core]
 	pager = less -r
 	autocrlf = input
-	excludesfile = /Users/kir/.gitignore_global
+	excludesfile = ~/.gitignore_global
 	editor = /usr/local/bin/nvim
 [push]
 	default = simple
@@ -26,3 +27,5 @@
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f
 	required = true
+[github]
+	user = kirs
