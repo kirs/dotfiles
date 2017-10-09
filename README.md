@@ -1,11 +1,10 @@
-My dotfiles on OS X 10.10 & MBR.
+My dotfiles on OS X 10.12 & Macbook Pro Retina.
 
-Links:
+Symlink:
 
 ```
-.zshrc -> .dotfiles/zshrc
-.zsh -> .dotfiles/.zsh
 .gitconfig -> .dotfiles/gitconfig
 .gitignore_global -> .dotfiles/gitignore
 .bin -> .dotfiles/bin
+.vimrc -> .dotfiles/.vimrc
 ``
