@@ -18,8 +18,6 @@ let g:netrw_list_hide = '.git, .*\.swp, .DS_Store'
 let mapleader = ","
 "" Clipboard
 "
-map <Leader>p "+p
-map <Leader>y "+y
 nnoremap <Leader>w <C-w>v<C-w>l
 nnoremap <leader>8 Orequire'debugger';debugger<esc>
 nnoremap <leader>9 Orequire'pry';binding.pry<esc>
@@ -85,7 +83,7 @@ NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'Shougo/neosnippet.vim'
 NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'kien/ctrlp.vim'
+NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'rking/ag.vim'
 NeoBundle 'terryma/vim-multiple-cursors'
 NeoBundle 'tpope/vim-surround'
