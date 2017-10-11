@@ -97,7 +97,7 @@ NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'Xuyuanp/nerdtree-git-plugin'
 
 " Removes excess spaces
-NeoBundle 'kossnocorp/janitor.vim'
+NeoBundle 'vim-scripts/janitor.vim'
 
 " Sets up path for JVM langs (like Clojure)
 NeoBundle 'tpope/vim-classpath'
