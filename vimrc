@@ -84,7 +84,8 @@ NeoBundle 'Shougo/neosnippet.vim'
 NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'ctrlpvim/ctrlp.vim'
-NeoBundle 'rking/ag.vim'
+" NeoBundle 'rking/ag.vim' " deprecated
+NeoBundle 'mileszs/ack.vim'
 NeoBundle 'terryma/vim-multiple-cursors'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-commentary'
@@ -170,6 +171,13 @@ let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 
+"" Ack.vim
+
+let g:ackprg = 'rg --vimgrep --smart-case'
+cnoreabbrev ag Ack
+cnoreabbrev aG Ack
+cnoreabbrev Ag Ack
+cnoreabbrev AG Ack
 "" Airline
 "
 set laststatus=2
