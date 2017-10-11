@@ -18,7 +18,6 @@ let g:netrw_list_hide = '.git, .*\.swp, .DS_Store'
 let mapleader = ","
 "" Clipboard
 "
-nnoremap <Leader>w <C-w>v<C-w>l
 nnoremap <leader>8 Orequire'debugger';debugger<esc>
 nnoremap <leader>9 Orequire'pry';binding.pry<esc>
 nmap <leader>4 :NERDTreeToggle<cr>
