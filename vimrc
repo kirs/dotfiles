@@ -144,8 +144,6 @@ NeoBundle 'corntrace/bufexplorer'
 NeoBundle 'bogado/file-line'
 NeoBundle 'powerman/vim-plugin-ruscmd'
 NeoBundle 'morhetz/gruvbox'
-" Makes VIM super slow
-" NeoBundle 'jaxbot/github-issues.vim'
 
 " Required:
 call neobundle#end()
