@@ -1,4 +1,4 @@
-My dotfiles on OS X 10.12 & Macbook Pro Retina.
+My dotfiles on macOS.
 
 Symlink:
 
@@ -7,4 +7,4 @@ Symlink:
 .gitignore_global -> .dotfiles/gitignore
 .bin -> .dotfiles/bin
 .vimrc -> .dotfiles/.vimrc
-``
+```
