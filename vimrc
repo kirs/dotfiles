@@ -10,15 +10,23 @@ filetype plugin on
 filetype indent on
 set number
 set autoread
+set visualbell t_vb=    " turn off error beep/flash
+set novisualbell        " turn off visual bell
 
 set clipboard=unnamed
+
+" recommended for vim-stay
+set viewoptions=cursor,folds,slash,unix
 
 let g:netrw_list_hide = '.git, .*\.swp, .DS_Store'
 
 let mapleader = ","
 "" Clipboard
 "
-nnoremap <leader>8 Orequire'debugger';debugger<esc>
+map <Leader>p "+p
+map <Leader>y "+y
+nnoremap <Leader>w <C-w>v<C-w>l
+nnoremap <leader>8 Orequire'byebug';byebug<esc>
 nnoremap <leader>9 Orequire'pry';binding.pry<esc>
 nmap <leader>4 :NERDTreeToggle<cr>
 
@@ -26,10 +34,13 @@ set numberwidth=1
 
 "" Tabs
 "
-" nmap <leader>ne :NERDTree<cr>
-" nmap <c-t> :tabnew<cr>
-" nmap <leader>t :tabnew<cr>
+nmap <leader>ne :NERDTree<cr>
+nmap <c-t> :tabnew<cr>
+nmap <leader>t :tabnew<cr>
 
+" let g:ctrlp_map = '<leader>p'
+nmap <leader>p :FZF<cr>
+" nnoremap <c-> :FZF<cr>
 "" Don't use ~, .swp and all that bullshit.
 "
 set nobackup
@@ -89,9 +100,9 @@ NeoBundle 'terryma/vim-multiple-cursors'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-commentary'
 NeoBundle 'mattn/gist-vim'
-NeoBundle 'mattn/webapi-vim'
-NeoBundle 'tpope/vim-vinegar'
-NeoBundle 'wincent/command-t'
+" NeoBundle 'mattn/webapi-vim'
+" NeoBundle 'tpope/vim-vinegar'
+" NeoBundle 'wincent/command-t'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'Xuyuanp/nerdtree-git-plugin'
 
@@ -100,7 +111,6 @@ NeoBundle 'vim-scripts/janitor.vim'
 
 " Sets up path for JVM langs (like Clojure)
 NeoBundle 'tpope/vim-classpath'
-
 
 
 " Snippets
@@ -120,12 +130,15 @@ NeoBundle 'othree/html5.vim'
 NeoBundle 'othree/yajs.vim'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'slim-template/vim-slim'
+" NeoBundle 'tpope/vim-haml'
 NeoBundle 'ap/vim-css-color'
 NeoBundle 'vim-scripts/sh.vim'
 NeoBundle 'tpope/vim-liquid'
-NeoBundle 'jnwhiteh/vim-golang'
+" NeoBundle 'jnwhiteh/vim-golang'
+NeoBundle 'fatih/vim-go'
 NeoBundle 'tpope/vim-bundler'
-NeoBundle 'digitaltoad/vim-jade'
+" NeoBundle 'digitaltoad/vim-jade'
+NeoBundle 'mxw/vim-jsx'
 
 " Clojure
 NeoBundle 'guns/vim-clojure-static'
@@ -140,9 +153,21 @@ NeoBundle 'airblade/vim-gitgutter'
 "" Kir
 NeoBundle 'rking/ag.vim'
 NeoBundle 'corntrace/bufexplorer'
-NeoBundle 'bogado/file-line'
+NeoBundle 'bogado/file-line' " to support $ vi file.rb:12
 NeoBundle 'powerman/vim-plugin-ruscmd'
-NeoBundle 'morhetz/gruvbox'
+NeoBundle 'morhetz/gruvbox' " theme
+NeoBundle 'junegunn/fzf'
+NeoBundle 'zhaocai/GoldenView.Vim' "Always have a nice view for vim split windows
+
+" NeoBundle 'kopischke/vim-stay' " Makes vim change current directory
+" NeoBundle 'mhinz/vim-startify'
+" NeoBundle 'ctrlpvim/ctrlp.vim'
+
+NeoBundle 'takac/vim-hardtime'
+NeoBundle 'pbrisbin/vim-mkdir'
+NeoBundle 'scrooloose/syntastic'
+
+" NeoBundle 'jaxbot/github-issues.vim' " Makes VIM super slow
 
 " Required:
 call neobundle#end()
@@ -157,7 +182,8 @@ NeoBundleCheck
 
 "" Colorscheme
 "
-set background=dark
+" set background=dark
+set background=light
 "colorscheme solarized
 colorscheme gruvbox
 
@@ -194,19 +220,42 @@ au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
-" Change cursor shape between insert and normal mode in iTerm2.app
-if $TERM_PROGRAM =~ "iTerm"
-  let &t_SI = "\<Esc>]50;CursorShape=1\x7" " Vertical bar in insert mode
-  let &t_EI = "\<Esc>]50;CursorShape=0\x7" " Block in normal mode
-endif
-
-"" NerdTree close hack
-" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" Neovim support
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
 let g:gist_clip_command = 'pbcopy'
 
+" vim-rspec setup
 map <Leader>rt :call RunCurrentSpecFile()<CR>
 map <Leader>rs :call RunNearestSpec()<CR>
 map <Leader>rl :call RunLastSpec()<CR>
 map <Leader>ra :call RunAllSpecs()<CR>
 let g:rspec_command = "!bundle exec rspec {spec}"
+
+" vim-multiple-cursors setup
+let g:multi_cursor_exit_from_insert_mode = 0
+
+" vim-hardtime
+" let g:hardtime_default_on = 1
+
+" disable arrows
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
+
+" Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
+" if executable('ag')
+"   " Use Ag over Grep
+"   set grepprg=ag\ --nogroup\ --nocolor
+
+"   " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+"   let g:ctrlp_user_command = 'ag -Q -l --nocolor --hidden -g "" %s'
+
+"   " ag is fast enough that CtrlP doesn't need to cache
+"   " let g:ctrlp_use_caching = 0
+" endif
+
+" let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+" let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files . -co --exclude-standard']
+" let g:ctrlp_match_func = {'match': 'cpsm#CtrlPMatch'}
