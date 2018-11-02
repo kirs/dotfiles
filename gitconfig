@@ -1,5 +1,6 @@
 [diff]
 	compactionHeuristic = true
+	algorithm = patience
 [user]
 	name = Kir Shatrov
 	email = shatrov@me.com

@@ -1,0 +1,1 @@
+/Users/kir/.zprezto/runcoms/zshrc
