@@ -77,11 +77,11 @@ endif
 
 if has('vim_starting')
   " Required:
-  set runtimepath+=/Users/kir/.vim/bundle/neobundle.vim/
+  set runtimepath+=~/.config/nvim/bundle/neobundle.vim/
 endif
 
 " Required:
-call neobundle#begin(expand('/Users/kir/.vim/bundle'))
+call neobundle#begin(expand('~/.config/nvim/bundle'))
 
 " Let NeoBundle manage NeoBundle
 " Required:
@@ -93,6 +93,7 @@ NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'Shougo/neosnippet.vim'
 NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'tpope/vim-rhubarb'
 NeoBundle 'ctrlpvim/ctrlp.vim'
 " NeoBundle 'rking/ag.vim' " deprecated
 NeoBundle 'mileszs/ack.vim'
@@ -200,6 +201,9 @@ cnoreabbrev ag Ack
 cnoreabbrev aG Ack
 cnoreabbrev Ag Ack
 cnoreabbrev AG Ack
+
+nnoremap <Leader>p :CtrlP<CR>
+
 "" Airline
 "
 set laststatus=2
