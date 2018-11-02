@@ -20,6 +20,7 @@ alias rdm='./bin/rake db:migrate'
 alias rs='./bin/rails server'
 alias vi='nvim'
 alias vim='nvim'
+alias ag='rg'
 
 [ -f /opt/dev/dev.sh ] && source /opt/dev/dev.sh
 for file in ~/src/github.com/Shopify/cloudplatform/workflow-utils/*.bash; do source ${file}; done
