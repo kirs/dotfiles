@@ -30,3 +30,5 @@
 	required = true
 [github]
 	user = kirs
+[protocol]
+	version = 2
