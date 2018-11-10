@@ -16,3 +16,4 @@ export PATH="$HOME/src/bin:$PATH"
 
 export EDITOR=/usr/local/bin/nvim
 export DISABLE_SPRING=1
+export GOPATH=$HOME
