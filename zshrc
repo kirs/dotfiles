@@ -23,7 +23,10 @@ alias rdm='./bin/rake db:migrate'
 alias rs='./bin/rails server'
 alias vi='nvim'
 alias vim='nvim'
+
+# ripgrep is faster than The Silver Searcher but I'm used to ag command
 alias ag='rg'
 
+# Shopify things
 [ -f /opt/dev/dev.sh ] && source /opt/dev/dev.sh
 for file in ~/src/github.com/Shopify/cloudplatform/workflow-utils/*.bash; do source ${file}; done
