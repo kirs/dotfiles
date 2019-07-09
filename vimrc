@@ -158,6 +158,7 @@ NeoBundle 'bogado/file-line' " to support $ vi file.rb:12
 NeoBundle 'powerman/vim-plugin-ruscmd'
 NeoBundle 'morhetz/gruvbox' " theme
 NeoBundle 'junegunn/fzf'
+NeoBundle 'junegunn/fzf.vim'
 NeoBundle 'zhaocai/GoldenView.Vim' "Always have a nice view for vim split windows
 
 " NeoBundle 'kopischke/vim-stay' " Makes vim change current directory
