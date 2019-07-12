@@ -64,123 +64,12 @@ set smarttab
 set shiftwidth=2
 set tabstop=2
 
-
-"" NeoBundle
-"" Make sure all bundle-specific options are declared BELOW
-
-"" Switch back to sh
-"  Neobundle doesnt support fish as of 06 2014
-"
 if &shell =~# 'fish$'
   set shell=sh
 endif
 
-if has('vim_starting')
-  " Required:
-  set runtimepath+=~/.config/nvim/bundle/neobundle.vim/
-endif
-
-" Required:
-call neobundle#begin(expand('~/.config/nvim/bundle'))
-
-" Let NeoBundle manage NeoBundle
-" Required:
-NeoBundleFetch 'Shougo/neobundle.vim'
-
-"" BUNDLE
-""
-NeoBundle 'altercation/vim-colors-solarized'
-NeoBundle 'Shougo/neosnippet.vim'
-NeoBundle 'Shougo/neosnippet-snippets'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'tpope/vim-rhubarb'
-NeoBundle 'ctrlpvim/ctrlp.vim'
-" NeoBundle 'rking/ag.vim' " deprecated
-NeoBundle 'mileszs/ack.vim'
-NeoBundle 'terryma/vim-multiple-cursors'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'tpope/vim-commentary'
-NeoBundle 'mattn/gist-vim'
-" NeoBundle 'mattn/webapi-vim'
-" NeoBundle 'tpope/vim-vinegar'
-" NeoBundle 'wincent/command-t'
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'Xuyuanp/nerdtree-git-plugin'
-
-" Removes excess spaces
-NeoBundle 'vim-scripts/janitor.vim'
-
-" Sets up path for JVM langs (like Clojure)
-NeoBundle 'tpope/vim-classpath'
-
-
-" Snippets
-NeoBundle "MarcWeber/vim-addon-mw-utils"
-NeoBundle "tomtom/tlib_vim"
-NeoBundle "garbas/vim-snipmate"
-NeoBundle "honza/vim-snippets"
-NeoBundle 'scrooloose/nerdcommenter'
-
-" Langs
-NeoBundle 'tpope/vim-rails'
-NeoBundle 'thoughtbot/vim-rspec'
-NeoBundle 'vim-ruby/vim-ruby'
-NeoBundle 'Soares/fish.vim'
-NeoBundle 'othree/html5.vim'
-"NeoBundle 'pangloss/vim-javascript'
-NeoBundle 'othree/yajs.vim'
-NeoBundle 'kchmck/vim-coffee-script'
-NeoBundle 'slim-template/vim-slim'
-" NeoBundle 'tpope/vim-haml'
-NeoBundle 'ap/vim-css-color'
-NeoBundle 'vim-scripts/sh.vim'
-NeoBundle 'tpope/vim-liquid'
-" NeoBundle 'jnwhiteh/vim-golang'
-NeoBundle 'fatih/vim-go'
-NeoBundle 'tpope/vim-bundler'
-" NeoBundle 'digitaltoad/vim-jade'
-NeoBundle 'mxw/vim-jsx'
-
-" Clojure
-NeoBundle 'guns/vim-clojure-static'
-NeoBundle 'kien/rainbow_parentheses.vim'
-NeoBundle 'tpope/vim-fireplace'
-NeoBundle 'guns/vim-clojure-highlight'
-
-"" Airline
-NeoBundle 'bling/vim-airline'
-NeoBundle 'airblade/vim-gitgutter'
-
-"" Kir
-NeoBundle 'rking/ag.vim'
-NeoBundle 'corntrace/bufexplorer'
-NeoBundle 'bogado/file-line' " to support $ vi file.rb:12
-NeoBundle 'powerman/vim-plugin-ruscmd'
-NeoBundle 'morhetz/gruvbox' " theme
-NeoBundle 'junegunn/fzf'
-NeoBundle 'junegunn/fzf.vim'
-NeoBundle 'zhaocai/GoldenView.Vim' "Always have a nice view for vim split windows
-
-" NeoBundle 'kopischke/vim-stay' " Makes vim change current directory
-" NeoBundle 'mhinz/vim-startify'
-" NeoBundle 'ctrlpvim/ctrlp.vim'
-
-NeoBundle 'takac/vim-hardtime'
-NeoBundle 'pbrisbin/vim-mkdir'
-NeoBundle 'scrooloose/syntastic'
-
-" NeoBundle 'jaxbot/github-issues.vim' " Makes VIM super slow
-
-" Required:
-call neobundle#end()
-
 " Required:
 filetype plugin indent on
-
-" If there are uninstalled bundles found on startup,
-" this will conveniently prompt you to install them.
-NeoBundleCheck
-
 
 "" Colorscheme
 "
@@ -189,21 +78,7 @@ set background=light
 "colorscheme solarized
 colorscheme gruvbox
 
-"" CtrlP
-"
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
-
-"" Ack.vim
-
-let g:ackprg = 'rg --vimgrep --smart-case'
-cnoreabbrev ag Ack
-cnoreabbrev aG Ack
-cnoreabbrev Ag Ack
-cnoreabbrev AG Ack
-
-nnoremap <Leader>p :CtrlP<CR>
+nnoremap <Leader>p :Files<CR>
 
 "" Airline
 "
@@ -249,7 +124,5 @@ noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
 
-if executable('rg')
-  let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
-  " let g:ctrlp_use_caching = 0
-endif
+" fzf from brew + vim
+set rtp+=/usr/local/opt/fzf
