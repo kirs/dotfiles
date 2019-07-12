@@ -30,3 +30,4 @@ alias ag='rg'
 # Shopify things
 [ -f /opt/dev/dev.sh ] && source /opt/dev/dev.sh
 for file in ~/src/github.com/Shopify/cloudplatform/workflow-utils/*.bash; do source ${file}; done
+source ~/.zshenv
