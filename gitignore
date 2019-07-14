@@ -4,3 +4,4 @@ kirs/
 vendor/bundle
 gemfiles/vendor/bundle
 .byebug_history
+.idea/
