@@ -34,6 +34,9 @@ alias ag='rg'
 [ -f /opt/dev/dev.sh ] && source /opt/dev/dev.sh
 for file in ~/src/github.com/Shopify/cloudplatform/workflow-utils/*.bash; do source ${file}; done
 source ~/.zshenv
+alias gbc="git rev-parse --abbrev-ref HEAD"
+first-push() { git push --set-upstream origin $(gbc); dev open pr }
+
 
 # truffleruby
 function jt { ruby /Users/kir/src/github.com/oracle/truffleruby/tool/jt.rb "$@"; }
