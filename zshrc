@@ -16,8 +16,7 @@ setopt nosharehistory
 # zsh overrides rm
 unalias rm
 
-alias git='hub'
-alias g='hub'
+alias g='git'
 alias gcm='git checkout master'
 alias gp='git push'
 alias gst='git status'
