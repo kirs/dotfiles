@@ -36,7 +36,5 @@ source ~/.zshenv
 alias gbc="git rev-parse --abbrev-ref HEAD"
 first-push() { git push --set-upstream origin $(gbc); dev open pr }
 
-
 # truffleruby
-function jt { ruby /Users/kir/src/github.com/oracle/truffleruby/tool/jt.rb "$@"; }
-export PATH="/usr/local/opt/llvm@4/bin:$PATH"
+# function jt { ruby /Users/kir/src/github.com/oracle/truffleruby/tool/jt.rb "$@"; }
