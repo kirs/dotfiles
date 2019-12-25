@@ -4,7 +4,7 @@ Symlink:
 
 ```
 .gitconfig -> .dotfiles/gitconfig
-.gitignore_global -> .dotfiles/gitignore
+.gitignore_global -> .dotfiles/gitignore_global
 .bin -> .dotfiles/bin
 .vimrc -> .dotfiles/.vimrc
 ```
