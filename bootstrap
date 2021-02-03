@@ -1,12 +1,12 @@
 #!/bin/bash
 set -ex
 
-ln -s ~/dotfiles/zshrc ~/.zshrc
-ln -s ~/dotfiles/vimrc ~/.vimrc
-ln -s ~/dotfiles/gemrc ~/.gemrc
-ln -s ~/dotfiles/gitconfig ~/.gitconfig
+ln -sf ~/dotfiles/zshrc ~/.zshrc
+ln -sf ~/dotfiles/vimrc ~/.vimrc
+ln -sf ~/dotfiles/gitconfig ~/.gitconfig
 
 if ! [ $SPIN ]; then
+  ln -s ~/dotfiles/gemrc ~/.gemrc
   ln -s ~/dotfiles/zshenv ~/.zshenv
   ln -s ~/dotfiles/zpreztorc ~/.zpreztorc
   ln -s ~/dotfiles/gitignore_global ~/.gitignore_global
