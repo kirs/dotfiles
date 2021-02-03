@@ -45,7 +45,8 @@ else
 
   # Shopify things
   [ -f /opt/dev/dev.sh ] && source /opt/dev/dev.sh
-  for file in ~/src/github.com/Shopify/cloudplatform/workflow-utils/*.bash; do source ${file}; done
+  if [ -e /Users/kir/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/kir/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+
   source ~/.zshenv
 
   first-push() { git push --set-upstream origin $(gbc); dev open pr }
