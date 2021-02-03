@@ -38,7 +38,7 @@ else
   setopt nosharehistory
 
   # zsh overrides rm
-  unalias rm
+  # unalias rm
 
   alias vi='nvim'
   alias vim='nvim'

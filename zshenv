@@ -23,4 +23,4 @@ export GOPATH=$HOME
 # https://medium.com/@sidneyliebrand/how-fzf-and-ripgrep-improved-my-workflow-61c7ca212861
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
 
-export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+# export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
