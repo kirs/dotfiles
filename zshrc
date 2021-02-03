@@ -32,6 +32,10 @@ if [ $SPIN ]; then
     sudo apt-get install -y ripgrep
   fi
 
+  if ! command -v nvim &> /dev/null; then
+    sudo apt-get install -y neovim
+  fi
+
   first-push() { git push --set-upstream origin $(gbc) }
 else
   # Do not share comand history between tabs
