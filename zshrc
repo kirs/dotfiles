@@ -28,7 +28,9 @@ if [ $SPIN ]; then
 
   PROMPT='%(?.%F{green}√.%F{red}?%?)%f %B%~%b $vcs_info_msg_0_ $ '
 
-  sudo apt-get install -y ripgrep
+  if ! command -v rg &> /dev/null; then
+    sudo apt-get install -y ripgrep
+  fi
 
   first-push() { git push --set-upstream origin $(gbc) }
 else
