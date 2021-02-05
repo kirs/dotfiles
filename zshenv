@@ -16,7 +16,10 @@ fi
 export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/src/bin:$PATH"
 
-export EDITOR=/usr/local/bin/nvim
+if [ $SPIN ]; then
+  export EDITOR=nvim
+fi
+
 # export DISABLE_SPRING=1
 export GOPATH=$HOME
 

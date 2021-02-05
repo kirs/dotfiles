@@ -21,7 +21,6 @@
 	pager = less -r
 	autocrlf = input
 	excludesfile = ~/.gitignore_global
-	editor = /usr/local/bin/nvim
 [push]
 	default = simple
 [filter "lfs"]
