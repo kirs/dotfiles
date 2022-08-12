@@ -4,6 +4,12 @@ set -ex
 ln -sf ~/dotfiles/zshrc ~/.zshrc
 ln -sf ~/dotfiles/gitconfig ~/.gitconfig
 
+touch ~/.gemrc
+{ \
+  echo 'install: --no-document'; \
+  echo 'update: --no-document'; \
+} >> ~/.gemrc
+
 if ! [ $SPIN ]; then
   ln -s ~/dotfiles/vimrc ~/.vimrc
   ln -s ~/dotfiles/gemrc ~/.gemrc
