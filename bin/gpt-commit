@@ -1,5 +1,8 @@
 #!/bin/bash
 
+### Grabs diff of your code and sends it to OpenAI API.
+### The prompt is designed to print suggested git commands to create a new branch and the suggested commit name.
+
 set -e
 
 # Initialize the variable
