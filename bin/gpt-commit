@@ -1,0 +1,54 @@
+#!/bin/bash
+
+set -e
+
+# Initialize the variable
+diffs=""
+
+# # Get the list of dirty files
+dirty_files=$(git status --porcelain | awk '{print $2}')
+
+# # Loop through each dirty file
+for file in $dirty_files
+do
+  # Get the diff of the file and append it to the variable
+  diffs+=$(git diff "$file")
+done
+
+# exit if diffs is empty
+if [ -z "$diffs" ]; then
+  echo "No diffs found. Exiting..."
+  exit 0
+fi
+
+# Prefix the diffs variable with "blah"
+prompt="You are a developer. Given the following diff, come up with a branch name and commit message.'
+$diffs"
+
+prompt="$prompt\n\nReply with git checkout -b <branch-name> and git commit -m <commit-name>. Do not output any reasoning. Just git commands. Finish it with 'git push --set-upstream origin <that branch>"
+
+# Get the API key from the secrets file
+# Get the OpenAI API token
+if [ -z "$OPENAI_API_TOKEN" ]; then
+  OPENAI_API_TOKEN=$(cat /etc/spin/secrets/openai_api_token)
+fi
+
+# Encode the diffs as a JSON string
+json_diffs=$(jq -n --arg str "$prompt" '$str')
+
+response=$(curl -sS https://api.openai.com/v1/completions \
+-H "Content-Type: application/json" \
+-H "OpenAI-Organization: org-ttIhz6TKFczBo40jWhjYmxL1" \
+-H "Authorization: Bearer $OPENAI_API_TOKEN" \
+-d '{"model": "text-davinci-003", "prompt": '"$json_diffs"', "temperature": 0, "max_tokens": 70}')
+
+echo "$response"
+
+commands=$(echo $response | jq -r '.choices[0].text')
+
+echo "$commands"
+
+GREEN='\033[0;32m'
+NC='\033[0m' # No Color
+
+echo -e "${GREEN}$commands${NC}"
