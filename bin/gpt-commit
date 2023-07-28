@@ -1,8 +1,5 @@
 #!/bin/bash
 
-### Grabs diff of your code and sends it to OpenAI API.
-### The prompt is designed to print suggested git commands to create a new branch and the suggested commit name.
-
 set -e
 
 # Initialize the variable
@@ -28,7 +25,12 @@ fi
 prompt="You are a developer. Given the following diff, come up with a branch name and commit message.'
 $diffs"
 
-prompt="$prompt\n\nReply with git checkout -b <branch-name> and git commit -m <commit-name>. Do not output any reasoning. Just git commands. Finish it with 'git push --set-upstream origin <that branch>"
+# if arguments have -c, then add the following prompt
+if [[ $* == *-c* ]]; then
+  prompt="$prompt\n\nReply with git commit -m <commit-name>. Do not output any reasoning."
+else
+  prompt="$prompt\n\nReply with git checkout -b <branch-name> and git commit -m <commit-name>. Do not output any reasoning. Just git commands. Finish it with 'git push --set-upstream origin <that branch>"
+fi
 
 # Get the API key from the secrets file
 # Get the OpenAI API token
