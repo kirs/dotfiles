@@ -1,7 +1,3 @@
-# Source Prezto.
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-fi
 
 alias g='git'
 alias gcm='git checkout master'
@@ -14,60 +10,91 @@ alias ag='rg'
 # thx @sirupsen!
 alias gbc="git rev-parse --abbrev-ref HEAD"
 
-if [ $SPIN ]; then
-  # Prompt
-  autoload -Uz vcs_info
-  precmd_functions+=( vcs_info )
-  setopt prompt_subst
+# Do not share comand history between tabs
+setopt nosharehistory
 
-  zstyle ':vcs_info:git:*' check-for-changes true
-  zstyle ':vcs_info:*' unstagedstr '*'
-  zstyle ':vcs_info:*' stagedstr '+'
-  zstyle ':vcs_info:git:*' formats '%F{200}[%b%u%c]%f'
-  zstyle ':vcs_info:*' enable git
+# zsh overrides rm
+# unalias rm
 
-  PROMPT='%(?.%F{green}√.%F{red}?%?)%f %B%~%b $vcs_info_msg_0_ $ '
+alias vi='nvim'
+alias vim='nvim'
 
-  if ! command -v rg &> /dev/null; then
-    sudo apt-get install -y ripgrep
+# Shopify things
+[ -f /opt/dev/dev.sh ] && source /opt/dev/dev.sh
+
+source ~/.zshenv
+
+first-push() { git push --set-upstream origin $(gbc); dev open pr }
+
+
+autoload -Uz vcs_info
+precmd() { vcs_info }
+
+zstyle ':vcs_info:git:*' formats '%b'
+
+setopt PROMPT_SUBST
+
+function git_dirty() {
+    [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit, working tree clean" ]] && echo "*"
+}
+
+function git_branch_name() {
+  branch=$(git symbolic-ref HEAD 2> /dev/null | awk 'BEGIN{FS="/"} {print $NF}')
+  if [[ $branch == "" ]];
+  then
+    :
+  else
+    echo '('$branch')'$(git_dirty)
   fi
+}
 
-  if ! command -v nvim &> /dev/null; then
-    sudo apt-get install -y neovim
+function git_branch_color() {
+  branch=$(git symbolic-ref HEAD 2> /dev/null | awk 'BEGIN{FS="/"} {print $NF}')
+  if [[ $branch == "" ]];
+  then
+    echo "%F{green}"
+  else
+    if [[ $(git_dirty) == "*" ]];
+    then
+      echo "%F{red}"
+    else
+      echo "%F{yellow}"
+    fi
   fi
+}
+PROMPT='%F{cyan}%n%f%F%f:%F{blue}%~%f $(git_branch_color)$(git_branch_name)%f$ '
 
-  first-push() { git push --set-upstream origin $(gbc) }
-else
-  # Do not share comand history between tabs
-  setopt nosharehistory
+source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
+source /opt/homebrew/opt/chruby/share/chruby/auto.sh
 
-  # zsh overrides rm
-  # unalias rm
+export NVM_DIR="$HOME/.nvm"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
 
-  alias vi='nvim'
-  alias vim='nvim'
+# The source is kind of shitty and causes compinit issues
+# [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
-  # Shopify things
-  [ -f /opt/dev/dev.sh ] && source /opt/dev/dev.sh
-  if [ -e /Users/kir/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/kir/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+dev() { 
+  local subcmd=$1
+  shift 1;
 
-  source ~/.zshenv
+  cd $(ruby /Users/kir/src/github.com/kirs/fuzzy-proj/cd.rb $@)
+}
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
 
-  first-push() { git push --set-upstream origin $(gbc); dev open pr }
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+# __conda_setup="$('/Users/kir/.pyenv/versions/anaconda3-2023.03/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+# if [ $? -eq 0 ]; then
+#     eval "$__conda_setup"
+# else
+#     if [ -f "/Users/kir/.pyenv/versions/anaconda3-2023.03/etc/profile.d/conda.sh" ]; then
+#         . "/Users/kir/.pyenv/versions/anaconda3-2023.03/etc/profile.d/conda.sh"
+#     else
+#         export PATH="/Users/kir/.pyenv/versions/anaconda3-2023.03/bin:$PATH"
+#     fi
+# fi
+# unset __conda_setup
+# <<< conda initialize <<<
 
-  # truffleruby
-  # function jt { ruby /Users/kir/src/github.com/oracle/truffleruby/tool/jt.rb "$@"; }
-fi
-
-if [[ $(uname -p) == 'arm' ]]; then
-  # kir's personal M1
-  source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
-  source /opt/homebrew/opt/chruby/share/chruby/auto.sh
-
-  # The next line updates PATH for the Google Cloud SDK.
-  if [ -f '/opt/google-cloud-sdk/path.zsh.inc' ]; then . '/opt/google-cloud-sdk/path.zsh.inc'; fi
-
-  # The next line enables shell command completion for gcloud.
-  if [ -f '/opt/google-cloud-sdk/completion.zsh.inc' ]; then . '/opt/google-cloud-sdk/completion.zsh.inc'; fi
-
-fi
